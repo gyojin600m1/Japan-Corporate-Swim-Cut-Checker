@@ -27,7 +27,7 @@
   </section>
   <section class="result" id="result"></section>
   <p class="lead">出典: <a href="https://aquatics.or.jp/swim/japan_record/2026/09/" style="color:#8bdfff">公益財団法人日本水泳連盟 第9回 日本社会人選手権水泳競技大会</a><br>
-  &copy; 2026 gyojin600m1 無断複製・再配布を禁じます。</p>
+  <span style="color:var(--ink);font-weight:700;animation:blinkNotice 1.6s ease-in-out infinite">&copy; 2026 gyojin600m1 無断複製・再配布を禁じます。</span></p>
   <script>
     const ENTRIES=[
   {
@@ -510,4 +510,5 @@
     function render(){const e=ENTRIES.find(x=>x.gender===$("gender").value&&x.stroke===$("stroke").value&&x.distance===Number($("distance").value));const sec=toSec($("time").value);if(!e){$("result").innerHTML="該当標準がありません。";return}const diff=sec-toSec(e.standard);const status=Number.isFinite(diff)?(diff<=0?"突破":"あと "+fmt(diff)):"タイム未入力";$("result").innerHTML='<div>標準記録</div><div class="std">'+e.standard+'</div><span class="pill '+(diff<=0?"ok":"no")+'">'+status+'</span><div>'+(Number.isFinite(diff)?(diff<=0?fmt(-diff)+" 速い":fmt(diff)+" 足りない"):"タイムを入力してください")+'</div>'}
     setup();
   </script>
-</main></body></html>
+</main><style>@keyframes blinkNotice{0%,100%{opacity:1}50%{opacity:.5}}</style>
+</body></html>
